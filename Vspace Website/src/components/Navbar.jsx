@@ -83,6 +83,7 @@ function Navbar() {
           </Box>
         </Container>
       </Box>
+      
     </>
   );
 }
