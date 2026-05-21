@@ -58,21 +58,22 @@ function Navbar() {
                   sx={{
                     fontSize: "18px",
                     fontWeight: 500,
+
                     color: index === 0 ? "#fff" : "#555",
-                    backgroundColor:
-                      index === 0 ? "#ef3b2d" : "transparent",
+                    backgroundColor: index === 0 ? "#ef3b2d" : "transparent",
 
                     px: 3,
                     py: 3,
 
-                    borderTopRightRadius:
-                      index === 0 ? "30px" : "0px",
+                    borderTopRightRadius: index === 0 ? "30px" : "0px",
 
                     cursor: "pointer",
                     transition: "0.3s",
 
                     "&:hover": {
-                      color: index === 0 ? "#fff" : "#ef3b2d",
+                      color: "#fff",
+                      backgroundColor: "#ef3b2d",
+                      borderTopRightRadius: "30px",
                     },
                   }}
                 >
@@ -83,7 +84,6 @@ function Navbar() {
           </Box>
         </Container>
       </Box>
-      
     </>
   );
 }
