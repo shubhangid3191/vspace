@@ -5,8 +5,9 @@ import {
   Typography,
   IconButton,
   Grid,
-  Button,
+ Button,
 } from "@mui/material";
+
 import LinkIcon from "@mui/icons-material/Link";
 import AndroidIcon from "@mui/icons-material/Android";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -26,7 +27,7 @@ import Img3 from "../assets/3.png";
 import Img4 from "../assets/4.png";
 import Img5 from "../assets/5.png";
 
-export default function SmartIdeaSection() {
+export default function Home() {
   const [hovered, setHovered] = useState(null);
   const [hoveredService, setHoveredService] = useState(null);
   const [startIndex, setStartIndex] = useState(0);
@@ -59,13 +60,33 @@ export default function SmartIdeaSection() {
   ];
 
   const portfolioData = [
-  { image: Rydalong, title: "Rydalong", link: "https://rydalong.com" },
-  { image: UniqueWoddworks, title: "Unique Woodworks", link: "https://uniquewoodworks.com" },
-  { image: OrionShipping, title: "Orion Shipping", link: "https://orionshipping.com" },
-  { image: BrooksLittle, title: "Brooks Little", link: "https://brookslittle.com" },
-  { image: SigmaAirFilters, title: "Sigma Air Filters", link: "https://sigmaairfilters.com" },
-  { image: ReliableTransport, title: "Reliable Transport", link: "https://reliabletransport.com" },
-];
+    { image: Rydalong, title: "Rydalong", link: "https://rydalong.com" },
+    {
+      image: UniqueWoddworks,
+      title: "Unique Woodworks",
+      link: "https://uniquewoodworks.com",
+    },
+    {
+      image: OrionShipping,
+      title: "Orion Shipping",
+      link: "https://orionshipping.com",
+    },
+    {
+      image: BrooksLittle,
+      title: "Brooks Little",
+      link: "https://brookslittle.com",
+    },
+    {
+      image: SigmaAirFilters,
+      title: "Sigma Air Filters",
+      link: "https://sigmaairfilters.com",
+    },
+    {
+      image: ReliableTransport,
+      title: "Reliable Transport",
+      link: "https://reliabletransport.com",
+    },
+  ];
 
   const visibleImages = [
     portfolioData[startIndex % portfolioData.length],
@@ -73,15 +94,13 @@ export default function SmartIdeaSection() {
     portfolioData[(startIndex + 2) % portfolioData.length],
   ];
 
-  const handleNext = () => {
+  const handleNext = () =>
     setStartIndex((prev) => (prev + 1) % portfolioData.length);
-  };
 
-  const handlePrev = () => {
+  const handlePrev = () =>
     setStartIndex(
       (prev) => (prev - 1 + portfolioData.length) % portfolioData.length
     );
-  };
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -89,6 +108,7 @@ export default function SmartIdeaSection() {
         prev + 3 >= portfolioData.length ? 0 : prev + 1
       );
     }, 3000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -100,55 +120,64 @@ export default function SmartIdeaSection() {
     { title: "Offshore Development & Training", image: Img5 },
   ];
 
+  const RING_SIZE = 190;
+
   return (
     <>
-      {/* SMART IDEA SECTION */}
-      <div style={{ backgroundColor: "#fff", padding: "70px 20px" }}>
-        <div
-          style={{
+      {/* ─────────────────────────────────────────
+          SMART IDEA SECTION
+      ───────────────────────────────────────── */}
+
+      <Box sx={{ backgroundColor: "#fff", py: "70px", px: "20px" }}>
+        <Box
+          sx={{
             position: "relative",
             textAlign: "center",
             margin: "0 auto 60px",
             maxWidth: "900px",
-            padding: "0 40px",
+            px: "40px",
           }}
         >
-          <div
-            style={{
+          <Box
+            sx={{
               position: "absolute",
-              left: "0",
-              top: "0",
-              bottom: "0",
+              left: 0,
+              top: 0,
+              bottom: 0,
               width: "2px",
               backgroundColor: "#cc2222",
             }}
           />
-          <div
-            style={{
+
+          <Box
+            sx={{
               position: "absolute",
-              right: "0",
-              top: "0",
-              bottom: "0",
+              right: 0,
+              top: 0,
+              bottom: 0,
               width: "2px",
               backgroundColor: "#cc2222",
             }}
           />
-          <h2
-            style={{
+
+          <Typography
+            variant="h2"
+            sx={{
               fontSize: "36px",
               color: "#222",
-              marginBottom: "15px",
-              fontWeight: "500",
+              mb: "15px",
+              fontWeight: 500,
               fontFamily: "'Poppins', sans-serif",
             }}
           >
             This is a Smart Idea for Your Business
-          </h2>
-          <p
-            style={{
+          </Typography>
+
+          <Typography
+            sx={{
               fontSize: "16px",
               color: "#666",
-              lineHeight: "1.7",
+              lineHeight: 1.7,
               maxWidth: "800px",
               margin: "0 auto",
               fontFamily: "'Poppins', sans-serif",
@@ -156,46 +185,48 @@ export default function SmartIdeaSection() {
           >
             As the premier technology execution company, we promise you the
             right expertise and an unrelenting commitment to service.
-          </p>
-        </div>
+          </Typography>
+        </Box>
 
-        <div
-          style={{
+        <Box
+          sx={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
             gap: "35px",
-            marginTop: "70px",
-            padding: window.innerWidth < 768 ? "10px" : "40px",
+            mt: "70px",
+            px: { xs: "10px", md: "40px" },
           }}
         >
           {services.map((service, index) => (
-            <div
+            <Box
               key={index}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
-              style={{
+              sx={{
                 backgroundColor: "#fff",
-                padding: "20px",
+                p: "20px",
                 borderRadius: "14px",
                 transition: "0.3s",
                 transform:
-                  hovered === index ? "translateY(-8px)" : "translateY(0px)",
+                  hovered === index
+                    ? "translateY(-8px)"
+                    : "translateY(0px)",
                 boxShadow:
                   hovered === index
                     ? "0 10px 25px rgba(0,0,0,0.08)"
                     : "none",
               }}
             >
-              <div
-                style={{
+              <Box
+                sx={{
                   display: "flex",
                   alignItems: "center",
                   gap: "18px",
-                  marginBottom: "18px",
+                  mb: "18px",
                 }}
               >
-                <div
-                  style={{
+                <Box
+                  sx={{
                     width: "60px",
                     height: "60px",
                     borderRadius: "50%",
@@ -210,36 +241,39 @@ export default function SmartIdeaSection() {
                   }}
                 >
                   {service.icon}
-                </div>
-                <h3
-                  style={{
+                </Box>
+
+                <Typography
+                  sx={{
                     fontSize: "24px",
-                    margin: 0,
                     color: "#222",
-                    fontWeight: "400",
+                    fontWeight: 400,
                     fontFamily: "'Poppins', sans-serif",
                   }}
                 >
                   {service.title}
-                </h3>
-              </div>
-              <p
-                style={{
+                </Typography>
+              </Box>
+
+              <Typography
+                sx={{
                   fontSize: "16px",
                   color: "#666",
-                  lineHeight: "1.8",
-                  margin: 0,
+                  lineHeight: 1.8,
                   fontFamily: "'Poppins', sans-serif",
                 }}
               >
                 {service.description}
-              </p>
-            </div>
+              </Typography>
+            </Box>
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
 
-      {/* PORTFOLIO SECTION */}
+      {/* ─────────────────────────────────────────
+          PORTFOLIO SECTION
+      ───────────────────────────────────────── */}
+
       <Box sx={{ py: 8, backgroundColor: "#f5f5f5" }}>
         <Container maxWidth="xl">
           <Typography
@@ -247,12 +281,13 @@ export default function SmartIdeaSection() {
               textAlign: "center",
               fontSize: "27px",
               color: "#000",
-              fontWeight: "500",
+              fontWeight: 500,
               fontFamily: "Open Sans",
             }}
           >
             Portfolio
           </Typography>
+
           <Box
             sx={{
               width: "400px",
@@ -286,8 +321,14 @@ export default function SmartIdeaSection() {
                     cursor: "pointer",
                     backgroundColor: "#fff",
                     boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
-                    "&:hover .overlay": { opacity: 1 },
-                    "&:hover img": { transform: "scale(1.05)" },
+
+                    "&:hover .overlay": {
+                      opacity: 1,
+                    },
+
+                    "&:hover img": {
+                      transform: "scale(1.05)",
+                    },
                   }}
                 >
                   <Box
@@ -302,6 +343,7 @@ export default function SmartIdeaSection() {
                       display: "block",
                     }}
                   />
+
                   <Box
                     className="overlay"
                     sx={{
@@ -330,11 +372,23 @@ export default function SmartIdeaSection() {
                     >
                       {item.title}
                     </Typography>
-                      <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
-    <IconButton sx={{ border: "2px solid #fff", color: "#fff" }}>
-      <LinkIcon />
-    </IconButton>
-  </a>
+
+                    <Box
+                      component="a"
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{ textDecoration: "none" }}
+                    >
+                      <IconButton
+                        sx={{
+                          border: "2px solid #fff",
+                          color: "#fff",
+                        }}
+                      >
+                        <LinkIcon />
+                      </IconButton>
+                    </Box>
                   </Box>
                 </Box>
               </Grid>
@@ -357,11 +411,15 @@ export default function SmartIdeaSection() {
                 px: 4,
                 py: 1,
                 borderRadius: "30px",
-                "&:hover": { backgroundColor: "#93a39c" },
+
+                "&:hover": {
+                  backgroundColor: "#93a39c",
+                },
               }}
             >
               prev
             </Button>
+
             <Button
               onClick={handleNext}
               sx={{
@@ -370,7 +428,10 @@ export default function SmartIdeaSection() {
                 px: 4,
                 py: 1,
                 borderRadius: "30px",
-                "&:hover": { backgroundColor: "#93a39c" },
+
+                "&:hover": {
+                  backgroundColor: "#93a39c",
+                },
               }}
             >
               next
@@ -379,52 +440,59 @@ export default function SmartIdeaSection() {
         </Container>
       </Box>
 
-      {/* OUR SERVICES HEADING */}
-      <div
-        style={{
+      {/* ─────────────────────────────────────────
+          OUR SERVICES HEADING
+      ───────────────────────────────────────── */}
+
+      <Box
+        sx={{
           position: "relative",
           textAlign: "center",
           margin: "40px auto 60px",
           maxWidth: "900px",
-          padding: "0 40px",
+          px: "40px",
         }}
       >
-        <div
-          style={{
+        <Box
+          sx={{
             position: "absolute",
-            left: "0",
-            top: "0",
-            bottom: "0",
+            left: 0,
+            top: 0,
+            bottom: 0,
             width: "2px",
             backgroundColor: "#cc2222",
           }}
         />
-        <div
-          style={{
+
+        <Box
+          sx={{
             position: "absolute",
-            right: "0",
-            top: "0",
-            bottom: "0",
+            right: 0,
+            top: 0,
+            bottom: 0,
             width: "2px",
             backgroundColor: "#cc2222",
           }}
         />
-        <h2
-          style={{
+
+        <Typography
+          variant="h2"
+          sx={{
             fontSize: "36px",
             color: "#222",
-            marginBottom: "15px",
-            fontWeight: "500",
+            mb: "15px",
+            fontWeight: 500,
             fontFamily: "'Poppins', sans-serif",
           }}
         >
           Our Services
-        </h2>
-        <p
-          style={{
+        </Typography>
+
+        <Typography
+          sx={{
             fontSize: "16px",
             color: "#666",
-            lineHeight: "1.7",
+            lineHeight: 1.7,
             maxWidth: "800px",
             margin: "0 auto",
             fontFamily: "'Poppins', sans-serif",
@@ -432,18 +500,24 @@ export default function SmartIdeaSection() {
         >
           We offer competent services for your business to experience high
           potential of technology
-        </p>
-      </div>
+        </Typography>
+      </Box>
 
-      {/* SERVICE PROCESS ICONS */}
+      {/* ─────────────────────────────────────────
+          SERVICE PROCESS SECTION
+      ───────────────────────────────────────── */}
+
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          flexWrap: "wrap",
-          gap: { xs: 5, md: 0 },
-          py: 6,
+          flexWrap: { xs: "wrap", md: "nowrap" },
+          gap: { xs: 8, md: 0 },
+          py: 8,
+          px: 2,
+          overflow: "hidden",
+          backgroundColor: "#f5f5f5",
         }}
       >
         {serviceProcess.map((item, index) => {
@@ -456,75 +530,103 @@ export default function SmartIdeaSection() {
               onMouseLeave={() => setHoveredService(null)}
               sx={{
                 position: "relative",
+                width: "240px",
+                height: "240px",
                 display: "flex",
+                justifyContent: "center",
                 alignItems: "center",
+                mx: { xs: 0, md: "-15px" },
                 cursor: "pointer",
               }}
             >
-              {/* Zig Zag Connector */}
-              {index !== serviceProcess.length - 1 && (
-                <Box
-                  sx={{
-                    position: "absolute",
-                    left: "100%",
-                    top: "50%",
-                    width: "140px",
-                    height: "140px",
-                    border: "5px solid transparent",
-                    borderColor:
-                      index % 2 === 0
-                        ? "#e53935 transparent transparent transparent"
-                        : "transparent transparent #e53935 transparent",
-                    borderRadius: "50%",
-                    transform: "translate(-15px,-50%)",
-                    zIndex: 0,
-                  }}
-                />
-              )}
-
-              {/* Outer Circle */}
+              {/* RED HALF RING */}
               <Box
                 sx={{
-                  width: isHovered ? 200 : 160,
-                  height: isHovered ? 200 : 160,
+                  position: "absolute",
+                  width: RING_SIZE,
+                  height: RING_SIZE,
+                  borderRadius: "50%",
+                  border: "4px solid #e53935",
+                  transition: "0.4s ease",
+
+                  clipPath: isHovered
+                    ? "inset(0)"
+                    : index % 2 === 0
+                    ? "inset(0 0 50% 0)"
+                    : "inset(50% 0 0 0)",
+
+                  zIndex: 1,
+                }}
+              />
+
+              {/* GREY HOVER CIRCLE */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  width: "185px",
+                  height: "185px",
                   borderRadius: "50%",
                   backgroundColor: isHovered
-                    ? "rgba(0,0,0,0.18)"
+                    ? "rgba(120,120,120,0.55)"
                     : "transparent",
+
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  transition: "all 0.35s ease",
+
+                  transition: "0.4s ease",
                   zIndex: 2,
-                  position: "relative",
                 }}
               >
-                {/* Hexagon */}
+                {/* HOVER TEXT */}
+                <Typography
+                  sx={{
+                    position: "absolute",
+                    color: "#fff",
+                    textAlign: "center",
+                    width: "140px",
+                    fontSize: isHovered ? "22px" : "0px",
+                    opacity: isHovered ? 1 : 0,
+                    lineHeight: 1.5,
+                    fontWeight: 500,
+                    fontFamily: "'Poppins', sans-serif",
+                    transition: "0.3s ease",
+                    zIndex: 10,
+                  }}
+                >
+                  {item.title}
+                </Typography>
+
+                {/* HEXAGON */}
                 <Box
                   sx={{
-                    width: isHovered ? 130 : 110,
-                    height: isHovered ? 130 : 110,
+                    width: "120px",
+                    height: "120px",
                     backgroundColor: "#ef3b2d",
+
                     clipPath:
                       "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
+
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+
                     position: "relative",
-                    transition: "all 0.35s ease",
+                    transition: "0.4s ease",
+                    zIndex: 5,
                   }}
                 >
-                  {/* Inner Circle */}
+                  {/* INNER CIRCLE */}
                   <Box
                     sx={{
-                      width: isHovered ? 90 : 75,
-                      height: isHovered ? 90 : 75,
+                      width: "75px",
+                      height: "75px",
                       borderRadius: "50%",
                       backgroundColor: "#b30000",
+
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
-                      transition: "all 0.35s ease",
                     }}
                   >
                     <Box
@@ -532,33 +634,12 @@ export default function SmartIdeaSection() {
                       src={item.image}
                       alt={item.title}
                       sx={{
-                        width: isHovered ? "45px" : "38px",
-                        height: isHovered ? "45px" : "38px",
+                        width: "38px",
+                        height: "38px",
                         objectFit: "contain",
-                        transition: "all 0.35s ease",
                       }}
                     />
                   </Box>
-
-                  {/* Title above hexagon */}
-                  <Typography
-                    sx={{
-                      position: "absolute",
-                      top: isHovered ? "-60px" : "-48px",
-                      width: isHovered ? "200px" : "160px",
-                      textAlign: "center",
-                      color: isHovered ? "#cc0000" : "#333",
-                      fontSize: isHovered ? "15px" : "13px",
-                      fontWeight: isHovered ? 700 : 500,
-                      fontFamily: "'Poppins', sans-serif",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      transition: "all 0.35s ease",
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
                 </Box>
               </Box>
             </Box>

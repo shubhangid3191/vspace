@@ -168,7 +168,7 @@ function OctagonIcon({ service }) {
         <Typography sx={{
           color: '#c0392b',
           fontWeight: 700,
-          fontSize: '0.88rem',
+          fontSize: '1.5rem',
           textAlign: 'center',
           lineHeight: 1.35,
           mb: 0.8,
@@ -177,7 +177,7 @@ function OctagonIcon({ service }) {
         </Typography>
         <Typography sx={{
           color: '#555',
-          fontSize: '0.75rem',
+          fontSize: '1rem',
           textAlign: 'center',
           lineHeight: 1.5,
         }}>

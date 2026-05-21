@@ -169,13 +169,13 @@ export default function Portfolio() {
                     gap: 1,
                   }}
                 >
-                  <Typography sx={{ color: "#fff", fontWeight: 700, fontSize: "1rem", textAlign: "center", px: 1 }}>
+                  <Typography sx={{ color: "#fff", fontWeight: 700, fontSize: "1.5rem", textAlign: "center", px: 1 }}>
                     {item.title}
                   </Typography>
                   <Typography
                     sx={{
                       color: "rgba(255,255,255,0.85)",
-                      fontSize: "0.8rem",
+                      fontSize: "1rem",
                       border: "1px solid rgba(255,255,255,0.7)",
                       px: 1.5, py: 0.3,
                       borderRadius: 1,
