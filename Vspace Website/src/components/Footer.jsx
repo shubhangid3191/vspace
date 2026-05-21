@@ -22,8 +22,11 @@ const socialLinks = [
 
 export default function Footer() {
   return (
+    
     <Box component="footer" sx={{ backgroundColor: "#3a3a3a", color: "#cccccc" }}>
-
+    
+      {/* Red bottom border line */}
+      <Box sx={{ height: 6, backgroundColor: "#e84c3d", mt: 0 }} />
       {/* Main Footer Body */}
       <Box sx={{ px: { xs: 3, md: 8 }, pt: 5, pb: 4, textAlign: "center" }}>
 
