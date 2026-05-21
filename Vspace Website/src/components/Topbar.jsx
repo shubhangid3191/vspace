@@ -2,9 +2,9 @@ import React from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
-import GoogleIcon from "@mui/icons-material/Google";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from "@mui/icons-material/X";
+import GoogleIcon from "@mui/icons-material/Google";
 import EmailIcon from "@mui/icons-material/Email";
 import CallIcon from "@mui/icons-material/Call";
 
@@ -30,7 +30,6 @@ function Topbar() {
         <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <EmailIcon sx={{ color: "#fff", fontSize: 18 }} />
-
             <Typography
               sx={{
                 fontSize: "18px",
@@ -44,7 +43,6 @@ function Topbar() {
 
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <CallIcon sx={{ color: "#fff", fontSize: 18 }} />
-
             <Typography
               sx={{
                 fontSize: "18px",
@@ -77,10 +75,7 @@ function Topbar() {
             sx={{
               color: "#fff",
               p: 0.3,
-              "&:hover": {
-                color: "#f7495d",
-                backgroundColor: "transparent",
-              },
+              "&:hover": { color: "#f7495d", backgroundColor: "transparent" },
             }}
           >
             <FacebookIcon sx={{ fontSize: 20 }} />
@@ -94,13 +89,10 @@ function Topbar() {
             sx={{
               color: "#fff",
               p: 0.3,
-              "&:hover": {
-                color: "#f7495d",
-                backgroundColor: "transparent",
-              },
+              "&:hover": { color: "#f7495d", backgroundColor: "transparent" },
             }}
           >
-            <XIcon sx={{ fontSize: 20 }} />
+            <TwitterIcon sx={{ fontSize: 20 }} />
           </IconButton>
 
           <IconButton
@@ -111,10 +103,7 @@ function Topbar() {
             sx={{
               color: "#fff",
               p: 0.3,
-              "&:hover": {
-                color: "#DB4437",
-                backgroundColor: "transparent",
-              },
+              "&:hover": { color: "#DB4437", backgroundColor: "transparent" },
             }}
           >
             <GoogleIcon sx={{ fontSize: 20 }} />
@@ -128,10 +117,7 @@ function Topbar() {
             sx={{
               color: "#fff",
               p: 0.3,
-              "&:hover": {
-                color: "#f7495d",
-                backgroundColor: "transparent",
-              },
+              "&:hover": { color: "#f7495d", backgroundColor: "transparent" },
             }}
           >
             <LinkedInIcon sx={{ fontSize: 20 }} />
@@ -149,7 +135,7 @@ function Topbar() {
           gap: 0.6,
         }}
       >
-        {/* EMAIL + PHONE IN SAME LINE */}
+        {/* EMAIL + PHONE */}
         <Box
           sx={{
             display: "flex",
@@ -159,16 +145,8 @@ function Topbar() {
             flexWrap: "wrap",
           }}
         >
-          {/* EMAIL */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 0.4,
-            }}
-          >
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.4 }}>
             <EmailIcon sx={{ color: "#fff", fontSize: 14 }} />
-
             <Typography
               sx={{
                 fontSize: "15px",
@@ -180,16 +158,8 @@ function Topbar() {
             </Typography>
           </Box>
 
-          {/* PHONE */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 0.4,
-            }}
-          >
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.4 }}>
             <CallIcon sx={{ color: "#fff", fontSize: 14 }} />
-
             <Typography
               sx={{
                 fontSize: "15px",
@@ -202,7 +172,7 @@ function Topbar() {
           </Box>
         </Box>
 
-        {/* FOLLOW US CENTER */}
+        {/* FOLLOW US */}
         <Box
           sx={{
             display: "flex",
@@ -227,7 +197,7 @@ function Topbar() {
           </IconButton>
 
           <IconButton size="small" sx={{ color: "#fff", p: 0.2 }}>
-            <XIcon sx={{ fontSize: 15 }} />
+            <TwitterIcon sx={{ fontSize: 15 }} />
           </IconButton>
 
           <IconButton size="small" sx={{ color: "#fff", p: 0.2 }}>
