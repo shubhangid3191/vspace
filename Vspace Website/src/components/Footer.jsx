@@ -6,12 +6,12 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GoogleIcon from "@mui/icons-material/Google";
 
 const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "Portfolio", path: "/portfolio" },
-  { label: "Services", path: "/services" },
-  { label: "About us", path: "/about-us" },
-  { label: "Careers", path: "/careers" },
-  { label: "Contact Us", path: "/contact-us" },
+  { name: "Home", path: "/" },
+  { name: "Portfolio", path: "/portfolio" },
+  { name: "Services", path: "/services" },
+  { name: "About us", path: "/about-us" },
+  { name: "Careers", path: "/careers" },
+  { name: "Contact Us", path: "/contact-us" },
 ];
 
 const socialLinks = [
@@ -52,7 +52,7 @@ export default function Footer() {
           includes leading Indian and Global companies.
         </Typography>
 
-        {/* Social Icons — external links keep href with component="a" */}
+        {/* Social Icons */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 1 }}>
           {socialLinks.map((s) => (
             <IconButton
@@ -93,10 +93,9 @@ export default function Footer() {
           flexWrap: "wrap",
         }}
       >
-        {navLinks.map((link, index) => (
-          <Box key={link.label} sx={{ display: "flex", alignItems: "center" }}>
+        {navLinks.map((link, index) => (  // ✅ index added here
+          <Box key={link.name} sx={{ display: "flex", alignItems: "center" }}>  {/* ✅ key uses link.name */}
 
-            {/* ✅ Direct path — no href, no full URL */}
             <Link to={link.path} style={{ textDecoration: "none" }}>
               <Typography
                 sx={{
@@ -107,7 +106,7 @@ export default function Footer() {
                   "&:hover": { color: "#e84c3d" },
                 }}
               >
-                {link.label}
+                {link.name}  {/* ✅ link.name, not link.label */}
               </Typography>
             </Link>
 
