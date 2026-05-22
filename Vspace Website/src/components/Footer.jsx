@@ -1,4 +1,4 @@
-import { Box, Typography, Link as MuiLink, IconButton } from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -52,7 +52,7 @@ export default function Footer() {
           includes leading Indian and Global companies.
         </Typography>
 
-        {/* Social Icons */}
+        {/* Social Icons — external links keep href with component="a" */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 1 }}>
           {socialLinks.map((s) => (
             <IconButton
@@ -95,10 +95,9 @@ export default function Footer() {
       >
         {navLinks.map((link, index) => (
           <Box key={link.label} sx={{ display: "flex", alignItems: "center" }}>
-            <Link
-              to={link.path}          // ✅ React Router Link with same paths as Navbar
-              style={{ textDecoration: "none" }}
-            >
+
+            {/* ✅ Direct path — no href, no full URL */}
+            <Link to={link.path} style={{ textDecoration: "none" }}>
               <Typography
                 sx={{
                   color: "#cccccc",
@@ -111,6 +110,7 @@ export default function Footer() {
                 {link.label}
               </Typography>
             </Link>
+
             {index < navLinks.length - 1 && (
               <Box component="span" sx={{ color: "#666", fontSize: "0.875rem" }}>
                 |
