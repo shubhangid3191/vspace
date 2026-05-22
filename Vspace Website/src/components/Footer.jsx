@@ -1,16 +1,17 @@
-import { Box, Typography, Link, IconButton } from "@mui/material";
+import { Box, Typography, Link as MuiLink, IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GoogleIcon from "@mui/icons-material/Google";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Portfolio", href: "/portfolio/" },
-  { label: "Services", href: "/services/" },
-  { label: "About us", href: "/about-us/" },
-  { label: "Careers", href: "/careers/" },
-  { label: "Contact Us", href: "/contact-us/" },
+  { label: "Home", path: "/" },
+  { label: "Portfolio", path: "/portfolio" },
+  { label: "Services", path: "/services" },
+  { label: "About us", path: "/about-us" },
+  { label: "Careers", path: "/careers" },
+  { label: "Contact Us", path: "/contact-us" },
 ];
 
 const socialLinks = [
@@ -22,11 +23,11 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    
     <Box component="footer" sx={{ backgroundColor: "#3a3a3a", color: "#cccccc" }}>
-    
-      {/* Red bottom border line */}
-      <Box sx={{ height: 6, backgroundColor: "#e84c3d", mt: 0 }} />
+
+      {/* Red top border line */}
+      <Box sx={{ height: 6, backgroundColor: "#e84c3d" }} />
+
       {/* Main Footer Body */}
       <Box sx={{ px: { xs: 3, md: 8 }, pt: 5, pb: 4, textAlign: "center" }}>
 
@@ -95,16 +96,20 @@ export default function Footer() {
         {navLinks.map((link, index) => (
           <Box key={link.label} sx={{ display: "flex", alignItems: "center" }}>
             <Link
-              href={link.href}
-              underline="none"
-              sx={{
-                color: "#cccccc",
-                fontSize: "0.875rem",
-                px: 1.5,
-                "&:hover": { color: "#e84c3d" },
-              }}
+              to={link.path}          // ✅ React Router Link with same paths as Navbar
+              style={{ textDecoration: "none" }}
             >
-              {link.label}
+              <Typography
+                sx={{
+                  color: "#cccccc",
+                  fontSize: "0.875rem",
+                  px: 1.5,
+                  transition: "color 0.2s",
+                  "&:hover": { color: "#e84c3d" },
+                }}
+              >
+                {link.label}
+              </Typography>
             </Link>
             {index < navLinks.length - 1 && (
               <Box component="span" sx={{ color: "#666", fontSize: "0.875rem" }}>
